@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import RedButton from "../RedButton";
 import TextCamp from "../TextCamp";
-import { GET , GithubJson } from "@/app/api/route";
+import { getFromApi , GithubJson } from "@/app/api/route";
 import { useJsonData } from "@/context/GithubApiContext";
 import { useApiList } from "@/hooks/useApiList";
 
@@ -17,7 +17,7 @@ export default function FiltersSection ({ page, username }: FiltersSectionProps)
     const {sortName, sortForks, sortStars} = useApiList();
 
     useEffect(() => {
-        GET(page, username).then((response) => {
+        getFromApi(page, username).then((response) => {
             setJsonData(response);
             setFilteredData(response);
         })
