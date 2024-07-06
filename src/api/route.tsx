@@ -7,7 +7,7 @@ export interface GithubJson {
 
 
 
-export async function GET(request:Request,  page?: number, username?: string): Promise<GithubJson[]> {
+export async function GET( page?: number, username?: string): Promise<GithubJson[]> {
 
   try {
     const response = await fetch(`https://api.github.com/users/${username}/repos?page=${page}&per_page=5`)
