@@ -1,6 +1,6 @@
 'use client'
 
-import { GithubJson } from "@/app/api/route";
+import { GithubJson } from "@/api/route";
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react";
 import { ReactElement } from 'react';
 

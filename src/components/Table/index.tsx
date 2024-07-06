@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { getFromApi , GithubJson} from "../../app/api/route"
+import { GET , GithubJson} from "../../api/route"
 import RedButton from "../RedButton";
 import TextCamp from "../TextCamp";
 import FiltersSection from "../FiltersSection";
