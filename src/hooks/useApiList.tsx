@@ -5,22 +5,34 @@ export const useApiList = () => {
     const {jsonData, setJsonData} = useJsonData();
 
     function sortStars() {
-        const reposArray = Object.values(jsonData);
-        reposArray.sort((a, b) => a.stargazers_count - b.stargazers_count);
 
-        setJsonData(reposArray)
+        if(jsonData && setJsonData){
+            const reposArray = Object.values(jsonData);
+            reposArray.sort((a, b) => a.stargazers_count - b.stargazers_count);
+    
+            setJsonData(reposArray)
+        }
+
+        
     }
 
     function sortForks() {
-        const reposArray = Object.values(jsonData);
-        reposArray.sort((a, b) => a.forks_count - b.forks_count);
-        setJsonData(reposArray)
+
+        if(setJsonData && jsonData){
+            const reposArray = Object.values(jsonData);
+            reposArray.sort((a, b) => a.forks_count - b.forks_count);
+            setJsonData(reposArray)
+        }
+        
     }
 
     function sortName() {
-        const reposArray = Object.values(jsonData);
-        reposArray.sort((a, b) => a.name.localeCompare(b.name));
-        setJsonData(reposArray)
+        if(setJsonData && jsonData){
+            const reposArray = Object.values(jsonData);
+            reposArray.sort((a, b) => a.name.localeCompare(b.name));
+            setJsonData(reposArray)
+        }
+        
     }
    
     return {
