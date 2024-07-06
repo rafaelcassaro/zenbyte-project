@@ -33,7 +33,9 @@ export default function Table ({ page, username }: TableProps) {
                         </tr>
                     </thead>
                     <tbody>
-                        {jsonData.map((repository: GithubJson) => (
+                        
+                        {
+                        jsonData!.map((repository: GithubJson) => (
                             <tr key={repository.id}  >
                                 <td className="border-black border-solid border p-5">{repository.name}</td>
                                 <td className="border-black border-solid border p-5">{repository.stargazers_count}</td>

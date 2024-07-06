@@ -18,22 +18,31 @@ export default function FiltersSection ({ page, username }: FiltersSectionProps)
 
     useEffect(() => {
         GET(page, username).then((response) => {
-            setJsonData(response);
-            setFilteredData(response);
+            if(setJsonData && setFilteredData){
+                setJsonData(response);
+                setFilteredData(response);
+            }
+            
         })
     }, [page, username]);
 
     useEffect(() => {
-        const results = (filteredData as GithubJson[]).filter(person =>
-            person.name.toLowerCase().includes(searchInput.toLowerCase()) 
-        );
-        setJsonData(results);
+        if( setJsonData && searchInput){
+            const results = (filteredData as GithubJson[]).filter(person =>
+                person.name.toLowerCase().includes(searchInput.toLowerCase()) 
+            );
+            setJsonData(results);
+        }
+        
     }, [searchInput]);
     
     
 
     const onTyped = (evento: any) => {
-        setSearchInput(evento.target.value)
+        if(setSearchInput){
+            setSearchInput(evento.target.value)
+        }
+
     }
 
 
